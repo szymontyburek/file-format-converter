@@ -138,7 +138,6 @@ def export_xml(document):
     tree.write(filename, encoding="unicode", xml_declaration=True)
     print(f"Exported XML to {filename}")
 
-#TO DO: create seperate files that contain logic in main.py with strategy and factory design patterns. create a different file for each design pattern
 #TO DO: remove .claude folder, .git folder, readme.md, claude.md file, and all files from exports folder
 
 def main():
