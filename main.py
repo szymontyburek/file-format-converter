@@ -42,6 +42,13 @@ def export_csv(document):
             f.write(",".join(f'"{cell}"' for cell in row) + "\n")
     print(f"Exported CSV to {filename}")
 
+#TO DO: copy export_pdf() function and rename to export_txt() file. add conditional block for export_txt() function
+#TO DO: refactor export_pdf() to export pdf files rather than txt files
+#TO DO: refactor export_excel() to create .xlsx files rather than .tsv files
+#TO DO: create main function and move logic to main.py, so no logic exists outside of a function
+#TO DO: refactor export_* functions to create files in exports folder instead of printing to console
+#TO DO: remove .claude folder, .git folder, readme.md, and claude.md file 
+
 
 os.makedirs("exports", exist_ok=True)
 
