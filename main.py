@@ -1,4 +1,5 @@
 import os
+import csv
 import json
 import configparser
 import xml.etree.ElementTree as ET
@@ -28,19 +29,11 @@ def export_txt(document):
 
 def export_csv(document):
     filename = f"exports/{document['title']}.csv"
-    with open(filename, "w") as f:
+    with open(filename, "w", newline="") as f:
+        writer = csv.writer(f)
         for row in document["rows"]:
-            f.write(",".join(f'"{cell}"' for cell in row) + "\n")
+            writer.writerow(row)
     print(f"Exported CSV to {filename}")
-
-
-def export_tsv(document):
-    filename = f"exports/{document['title']}.tsv"
-    with open(filename, "w") as f:
-        for row in document["rows"]:
-            f.write("\t".join(str(cell) for cell in row) + "\n")
-    print(f"Exported TSV to {filename}")
-
 
 def export_json(document):
     filename = f"exports/{document['title']}.json"
@@ -145,13 +138,11 @@ def export_xml(document):
     tree.write(filename, encoding="unicode", xml_declaration=True)
     print(f"Exported XML to {filename}")
 
-
-#TO DO: refactor tsv export functions to match the new document structure
-#TO DO: create seperate files that contain logic in main.py with strategy and factory design patterns
+#TO DO: create seperate files that contain logic in main.py with strategy and factory design patterns. create a different file for each design pattern
 #TO DO: remove .claude folder, .git folder, readme.md, claude.md file, and all files from exports folder
 
 def main():
-    formats = ["txt", "csv", "tsv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
+    formats = ["txt", "csv", "json", "markdown", "html", "ini", "svg", "rtf", "xml"]
     format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
     while format not in formats:
         print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
@@ -161,8 +152,6 @@ def main():
         export_txt(document)
     elif format == "csv":
         export_csv(document)
-    elif format == "tsv":
-        export_tsv(document)
     elif format == "json":
         export_json(document)
     elif format == "markdown":
