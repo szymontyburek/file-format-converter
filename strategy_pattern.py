@@ -5,17 +5,6 @@ import configparser
 import xml.etree.ElementTree as ET
 from abc import ABC, abstractmethod
 
-document = {
-    "title": "Monthly Yield Report",
-    "author": "John Doe",
-    "rows": [
-        ["Location", "Total", "Passed", "Rejected", "Yield"],
-        ["AZ",        93234,   81387,    11847,      "87.2%"],
-        ["CA",        59712,   48975,    10737,      "82.0%"]
-    ]
-}
-
-
 # --- Abstract Strategy ---
 
 class ExportStrategy(ABC):
@@ -172,33 +161,3 @@ class DocumentExporter:
 
     def export(self, document):
         self.strategy.export(document)
-
-
-# --- Main ---
-
-def main():
-    strategies = {
-        "txt":      TxtStrategy,
-        "csv":      CsvStrategy,
-        "json":     JsonStrategy,
-        "markdown": MarkdownStrategy,
-        "html":     HtmlStrategy,
-        "ini":      IniStrategy,
-        "svg":      SvgStrategy,
-        "rtf":      RtfStrategy,
-        "xml":      XmlStrategy,
-    }
-
-    formats = list(strategies.keys())
-    format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
-    while format not in formats:
-        print(f"Invalid format: '{format}'. Please enter one of: {', '.join(formats)}.")
-        format = input(f"Enter export format ({', '.join(formats)}): ").strip().lower()
-
-    os.makedirs("exports", exist_ok=True)
-    exporter = DocumentExporter(strategies[format]())
-    exporter.export(document)
-
-
-if __name__ == "__main__":
-    main()
