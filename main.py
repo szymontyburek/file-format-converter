@@ -1,5 +1,3 @@
-#TO DO: remove .claude folder, .git folder, .gitignore file, readme.md file, claude.md file, and all files from exports folder
-
 import export
 
 document = {
