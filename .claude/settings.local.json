@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pip install:*)"
+      "Bash(pip install:*)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python -m pip install Pillow)",
+      "Bash(where python:*)",
+      "Bash(\"C:\\\\Users\\\\szymo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" main.py)"
     ]
   }
 }
