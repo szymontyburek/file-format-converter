@@ -69,4 +69,8 @@ class ConvertFactory:
         Returns:
             list: Target format strings available for conversion (e.g., ["jpg", "webp", "gif", "bmp"]).
         """
-        return [target for source, target in ConvertFactory._strategies if source == source_format]
+        targets = []
+        for source, target in ConvertFactory._strategies:
+            if source == source_format:
+                targets.append(target)
+        return targets

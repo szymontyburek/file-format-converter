@@ -117,9 +117,8 @@ def main():
     convert_files(files, source_ext, target_ext)
 
 if __name__ == "__main__":
-    #TODO: create unit test(s) to verify factory pattern output based on input format
+    #TODO: create unit tests to verify get_targets() output
     #TODO: refactor README.md to include instructions for: running tests & running the program with sample input files
-    #TODO: refactor list comprehension in ConvertFactory.get_targets() to be more readable
     #TODO: remove excess files and folders (ex: claude.md, .vscode, .git, .gitignore, etc.)
     #TODO: provide sample input files for testing
     #TODO: empty output folder
