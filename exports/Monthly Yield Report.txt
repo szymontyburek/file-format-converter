@@ -1,8 +1,0 @@
-=== TXT EXPORT ===
-Title:  Monthly Yield Report
-Author: John Doe
-----------------------------------------
-Location      |  Total         |  Passed        |  Rejected      |  Yield       
-AZ            |  93234         |  81387         |  11847         |  87.2%       
-CA            |  59712         |  48975         |  10737         |  82.0%       
-========================================
