@@ -5,7 +5,7 @@ Maps (source_format, target_format) pairs to the appropriate ConvertStrategy
 concrete class using the Factory design pattern.
 """
 
-from ConvertStrategy import (
+from classes.ConvertStrategy import (
     ConvertStrategy,
     PngToJpgStrategy, JpgToPngStrategy,
     WebpToPngStrategy, WebpToJpgStrategy,

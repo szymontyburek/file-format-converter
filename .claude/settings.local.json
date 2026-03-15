@@ -6,7 +6,10 @@
       "Bash(python -m pip install Pillow)",
       "Bash(where python:*)",
       "Bash(\"C:\\\\Users\\\\szymo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" main.py)",
-      "Bash(\"C:\\\\Users\\\\szymo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" -m unittest test_convert_factory.py)"
+      "Bash(\"C:\\\\Users\\\\szymo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" -m unittest test_convert_factory.py)",
+      "Bash(mv ConvertStrategy.py classes/)",
+      "Bash(mv ConvertFactory.py classes/)",
+      "Bash(\"C:\\\\Users\\\\szymo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" -m unittest tests/test_convert_factory.py)"
     ]
   }
 }

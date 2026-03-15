@@ -1,7 +1,7 @@
 """Unit tests for ConvertFactory.get_available_formats()."""
 
 import unittest
-from ConvertFactory import ConvertFactory
+from classes.ConvertFactory import ConvertFactory
 
 
 class TestGetTargets(unittest.TestCase):

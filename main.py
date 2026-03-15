@@ -6,8 +6,8 @@ options to the user, and converts the selected files to the output/ folder.
 """
 
 import os
-from ConvertFactory import ConvertFactory
-from ConvertStrategy import FileConverter
+from classes.ConvertFactory import ConvertFactory
+from classes.ConvertStrategy import FileConverter
 
 # Maps alternative extensions to their canonical form
 EXT_ALIASES = {"jpeg": "jpg"}
@@ -117,8 +117,6 @@ def main():
     convert_files(files, source_ext, target_ext)
 
 if __name__ == "__main__":
-    #TODO: refactor README.md to include instructions for: running tests & running the program with sample input files
-    #TODO: create classes folder and move ConvertFactory and ConvertStrategy into it, then update imports accordingly
     #TODO: remove excess files and folders (ex: claude.md, .vscode, .git, .gitignore, etc.)
     #TODO: provide sample input files for testing
     #TODO: empty output folder
