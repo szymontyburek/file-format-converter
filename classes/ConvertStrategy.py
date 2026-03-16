@@ -1,0 +1,195 @@
+"""
+Strategy module for image file conversions.
+
+Defines the abstract ConvertStrategy base class and 14 concrete strategy
+implementations for converting between image formats (PNG, JPG, WEBP, GIF, BMP).
+Uses the Strategy design pattern to encapsulate each conversion algorithm.
+"""
+
+from abc import ABC, abstractmethod
+from PIL import Image
+import os
+
+os.makedirs("output", exist_ok=True)
+
+# --- Abstract Strategy ---
+
+class ConvertStrategy(ABC):
+    """Abstract base class for all image conversion strategies."""
+
+    @abstractmethod
+    def convert(self, input_path):
+        """Convert an image file at the given path to a new format.
+
+        Args:
+            input_path: Path to the source image file.
+        """
+        pass
+
+
+# --- Concrete Strategies ---
+
+class PngToJpgStrategy(ConvertStrategy):
+    """Converts PNG images to JPG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.jpg"
+        img.convert("RGB").save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class JpgToPngStrategy(ConvertStrategy):
+    """Converts JPG images to PNG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.png"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class WebpToPngStrategy(ConvertStrategy):
+    """Converts WEBP images to PNG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.png"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class WebpToJpgStrategy(ConvertStrategy):
+    """Converts WEBP images to JPG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.jpg"
+        img.convert("RGB").save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class PngToWebpStrategy(ConvertStrategy):
+    """Converts PNG images to WEBP format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.webp"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class JpgToWebpStrategy(ConvertStrategy):
+    """Converts JPG images to WEBP format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.webp"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class GifToPngStrategy(ConvertStrategy):
+    """Converts GIF images to PNG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.png"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class GifToJpgStrategy(ConvertStrategy):
+    """Converts GIF images to JPG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.jpg"
+        img.convert("RGB").save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class PngToGifStrategy(ConvertStrategy):
+    """Converts PNG images to GIF format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.gif"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class JpgToGifStrategy(ConvertStrategy):
+    """Converts JPG images to GIF format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.gif"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class BmpToPngStrategy(ConvertStrategy):
+    """Converts BMP images to PNG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.png"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class BmpToJpgStrategy(ConvertStrategy):
+    """Converts BMP images to JPG format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.jpg"
+        img.convert("RGB").save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class PngToBmpStrategy(ConvertStrategy):
+    """Converts PNG images to BMP format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.bmp"
+        img.convert("RGB").save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class JpgToBmpStrategy(ConvertStrategy):
+    """Converts JPG images to BMP format."""
+    def convert(self, input_path):
+        img = Image.open(input_path)
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.bmp"
+        img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+# --- Context ---
+
+class FileConverter:
+    """Context class that delegates file conversion to a ConvertStrategy.
+
+    Uses the Strategy pattern to decouple the conversion algorithm
+    from the code that invokes it.
+    """
+
+    def __init__(self, strategy: ConvertStrategy):
+        """Initialize with a specific conversion strategy.
+
+        Args:
+            strategy: A ConvertStrategy instance that defines the conversion behavior.
+        """
+        self.strategy = strategy
+
+    def convert(self, input_path):
+        """Convert the file at input_path using the assigned strategy.
+
+        Args:
+            input_path: Path to the source image file.
+        """
+        self.strategy.convert(input_path)
