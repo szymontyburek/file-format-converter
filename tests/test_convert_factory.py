@@ -27,6 +27,10 @@ class TestGetTargets(unittest.TestCase):
         targets = ConvertFactory.get_available_formats("bmp")
         self.assertEqual(targets, ["png", "jpg"])
 
+    def test_html_targets(self):
+        targets = ConvertFactory.get_available_formats("html")
+        self.assertEqual(targets, ["pdf"])
+
     def test_unsupported_format(self):
         targets = ConvertFactory.get_available_formats("tiff")
         self.assertEqual(targets, [])

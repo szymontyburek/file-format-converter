@@ -1,13 +1,16 @@
 """
 Strategy module for image file conversions.
 
-Defines the abstract ConvertStrategy base class and 14 concrete strategy
-implementations for converting between image formats (PNG, JPG, WEBP, GIF, BMP).
+Defines the abstract ConvertStrategy base class and 15 concrete strategy
+implementations for converting between image formats (PNG, JPG, WEBP, GIF, BMP)
+and documents (HTML → PDF).
 Uses the Strategy design pattern to encapsulate each conversion algorithm.
 """
 
 from abc import ABC, abstractmethod
 from PIL import Image
+from pathlib import Path
+from playwright.sync_api import sync_playwright
 import os
 
 os.makedirs("output", exist_ok=True)
@@ -166,6 +169,21 @@ class JpgToBmpStrategy(ConvertStrategy):
         filename = os.path.splitext(os.path.basename(input_path))[0]
         output_path = f"output/{filename}.bmp"
         img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class HtmlToPdfStrategy(ConvertStrategy):
+    """Converts HTML files to PDF format using a headless Chromium browser."""
+    def convert(self, input_path):
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.pdf"
+        file_uri = Path(input_path).resolve().as_uri()
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            page = browser.new_page()
+            page.goto(file_uri, wait_until="networkidle")
+            page.pdf(path=output_path)
+            browser.close()
         print(f"Converted {input_path} → {output_path}")
 
 

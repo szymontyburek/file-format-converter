@@ -13,7 +13,8 @@ A private, local alternative to online conversion tools for common image format 
 1. Install dependencies:
 
 ```bash
-pip install Pillow
+pip install Pillow playwright
+playwright install chromium
 ```
 
 2. Place image file(s) in the `input/` folder.
@@ -50,8 +51,10 @@ python -m unittest tests/test_convert_factory.py
 | 12 | BMP → JPG |
 | 13 | PNG → BMP |
 | 14 | JPG → BMP |
+| 15 | HTML → PDF |
 
 ## Dependencies
 
 - Python 3.10+
 - [Pillow](https://pypi.org/project/Pillow/)
+- [Playwright](https://pypi.org/project/playwright/) (+ Chromium — installed via `playwright install chromium`)

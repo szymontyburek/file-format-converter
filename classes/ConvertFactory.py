@@ -14,6 +14,7 @@ from classes.ConvertStrategy import (
     PngToGifStrategy, JpgToGifStrategy,
     BmpToPngStrategy, BmpToJpgStrategy,
     PngToBmpStrategy, JpgToBmpStrategy,
+    HtmlToPdfStrategy,
 )
 
 
@@ -38,6 +39,7 @@ class ConvertFactory:
         ("bmp", "jpg"): BmpToJpgStrategy,
         ("png", "bmp"): PngToBmpStrategy,
         ("jpg", "bmp"): JpgToBmpStrategy,
+        ("html", "pdf"): HtmlToPdfStrategy,
     }
 
     @staticmethod
