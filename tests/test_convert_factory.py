@@ -29,7 +29,7 @@ class TestGetTargets(unittest.TestCase):
 
     def test_html_targets(self):
         targets = ConvertFactory.get_available_formats("html")
-        self.assertEqual(targets, ["pdf"])
+        self.assertEqual(targets, ["pdf", "docx"])
 
     def test_unsupported_format(self):
         targets = ConvertFactory.get_available_formats("tiff")
