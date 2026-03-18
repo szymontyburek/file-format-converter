@@ -2,4 +2,3 @@ Pillow
 playwright
 htmldocx
 python-docx
-vtracer

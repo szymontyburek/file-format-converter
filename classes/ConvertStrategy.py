@@ -13,7 +13,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 from htmldocx import HtmlToDocx
 from docx import Document
-import vtracer
+import base64
 import os
 
 os.makedirs("output", exist_ok=True)
@@ -176,19 +176,21 @@ class JpgToBmpStrategy(ConvertStrategy):
 
 
 class PngToSvgStrategy(ConvertStrategy):
-    """Converts PNG images to SVG format using vtracer vectorization."""
+    """Converts PNG images to SVG format by embedding the image as base64."""
     def convert(self, input_path):
         filename = os.path.splitext(os.path.basename(input_path))[0]
         output_path = f"output/{filename}.svg"
-        vtracer.convert_image_to_svg_py(
-            input_path,
-            output_path,
-            colormode="color",
-            filter_speckle=4,
-            color_precision=6,
-            corner_threshold=60,
-            mode="polygon",
+        img = Image.open(input_path)
+        width, height = img.size
+        with open(input_path, "rb") as f:
+            b64_data = base64.b64encode(f.read()).decode("utf-8")
+        svg_content = (
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}">'
+            f'<image href="data:image/png;base64,{b64_data}" width="{width}" height="{height}"/>'
+            f'</svg>'
         )
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(svg_content)
         print(f"Converted {input_path} → {output_path}")
 
 

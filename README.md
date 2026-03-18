@@ -13,7 +13,7 @@ A private, local alternative to online conversion tools for common image format 
 1. Install dependencies:
 
 ```bash
-pip install Pillow playwright htmldocx vtracer
+pip install Pillow playwright htmldocx
 playwright install chromium
 ```
 
@@ -61,4 +61,3 @@ python -m unittest tests/test_convert_factory.py
 - [Pillow](https://pypi.org/project/Pillow/)
 - [Playwright](https://pypi.org/project/playwright/) (+ Chromium — installed via `playwright install chromium`)
 - [htmldocx](https://pypi.org/project/htmldocx/)
-- [vtracer](https://pypi.org/project/vtracer/)
