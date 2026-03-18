@@ -13,7 +13,7 @@ A private, local alternative to online conversion tools for common image format 
 1. Install dependencies:
 
 ```bash
-pip install Pillow playwright htmldocx
+pip install Pillow playwright htmldocx vtracer
 playwright install chromium
 ```
 
@@ -53,6 +53,7 @@ python -m unittest tests/test_convert_factory.py
 | 14 | JPG → BMP |
 | 15 | HTML → PDF |
 | 16 | HTML → DOCX |
+| 17 | PNG → SVG |
 
 ## Dependencies
 
@@ -60,3 +61,4 @@ python -m unittest tests/test_convert_factory.py
 - [Pillow](https://pypi.org/project/Pillow/)
 - [Playwright](https://pypi.org/project/playwright/) (+ Chromium — installed via `playwright install chromium`)
 - [htmldocx](https://pypi.org/project/htmldocx/)
+- [vtracer](https://pypi.org/project/vtracer/)

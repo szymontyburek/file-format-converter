@@ -13,6 +13,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 from htmldocx import HtmlToDocx
 from docx import Document
+import vtracer
 import os
 
 os.makedirs("output", exist_ok=True)
@@ -171,6 +172,23 @@ class JpgToBmpStrategy(ConvertStrategy):
         filename = os.path.splitext(os.path.basename(input_path))[0]
         output_path = f"output/{filename}.bmp"
         img.save(output_path)
+        print(f"Converted {input_path} → {output_path}")
+
+
+class PngToSvgStrategy(ConvertStrategy):
+    """Converts PNG images to SVG format using vtracer vectorization."""
+    def convert(self, input_path):
+        filename = os.path.splitext(os.path.basename(input_path))[0]
+        output_path = f"output/{filename}.svg"
+        vtracer.convert_image_to_svg_py(
+            input_path,
+            output_path,
+            colormode="color",
+            filter_speckle=4,
+            color_precision=6,
+            corner_threshold=60,
+            mode="polygon",
+        )
         print(f"Converted {input_path} → {output_path}")
 
 

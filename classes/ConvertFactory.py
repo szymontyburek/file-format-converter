@@ -13,7 +13,7 @@ from classes.ConvertStrategy import (
     GifToPngStrategy, GifToJpgStrategy,
     PngToGifStrategy, JpgToGifStrategy,
     BmpToPngStrategy, BmpToJpgStrategy,
-    PngToBmpStrategy, JpgToBmpStrategy,
+    PngToBmpStrategy, JpgToBmpStrategy, PngToSvgStrategy,
     HtmlToPdfStrategy,
     HtmlToDocxStrategy,
 )
@@ -39,6 +39,7 @@ class ConvertFactory:
         ("bmp", "png"): BmpToPngStrategy,
         ("bmp", "jpg"): BmpToJpgStrategy,
         ("png", "bmp"): PngToBmpStrategy,
+        ("png", "svg"): PngToSvgStrategy,
         ("jpg", "bmp"): JpgToBmpStrategy,
         ("html", "pdf"): HtmlToPdfStrategy,
         ("html", "docx"): HtmlToDocxStrategy,

@@ -9,7 +9,7 @@ class TestGetTargets(unittest.TestCase):
 
     def test_png_targets(self):
         targets = ConvertFactory.get_available_formats("png")
-        self.assertEqual(targets, ["jpg", "webp", "gif", "bmp"])
+        self.assertEqual(targets, ["jpg", "webp", "gif", "bmp", "svg"])
 
     def test_jpg_targets(self):
         targets = ConvertFactory.get_available_formats("jpg")

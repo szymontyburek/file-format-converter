@@ -117,7 +117,4 @@ def main():
     convert_files(files, source_ext, target_ext)
 
 if __name__ == "__main__":
-    #TODO: remove excess files and folders (ex: claude.md, .vscode, .git, .gitignore, etc.)
-    #TODO: provide sample input files for testing
-    #TODO: empty output folder
     main()
